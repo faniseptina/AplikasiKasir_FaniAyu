@@ -198,7 +198,6 @@ public class FormRegister extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBatalActionPerformed
-new  MenuUtama().setVisible(true);
 this.dispose();
 // TODO add your handling code here:
     }//GEN-LAST:event_btnBatalActionPerformed

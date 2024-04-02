@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 21 Mar 2024 pada 03.27
+-- Waktu pembuatan: 02 Apr 2024 pada 04.45
 -- Versi server: 10.4.28-MariaDB
 -- Versi PHP: 8.2.4
 
@@ -41,7 +41,9 @@ CREATE TABLE `detailpenjualan` (
 
 INSERT INTO `detailpenjualan` (`DetailID`, `ProdukID`, `Harga`, `JumlahProduk`, `Subtotal`) VALUES
 ('DIDP001', '501117896574', 20, 5, 100),
-('DIDP002', '8990021101096', 10, 1, 10);
+('DIDP002', '8990021101096', 10, 1, 10),
+('DIDP003', '8998685274002', 10, 2, 20),
+('DIDP004', '8998685274002', 10000, 10, 100000);
 
 -- --------------------------------------------------------
 
@@ -62,7 +64,8 @@ CREATE TABLE `login` (
 
 INSERT INTO `login` (`LoginID`, `Username`, `Password`, `HakAkses`) VALUES
 (1, 'fani', '12345', 'Admin'),
-(2, 'nadira', '6789', 'Petugas');
+(2, 'ayu', '12345', 'Petugas'),
+(10, 'septina', '56789', 'Admin');
 
 -- --------------------------------------------------------
 
@@ -83,8 +86,9 @@ CREATE TABLE `pelanggan` (
 
 INSERT INTO `pelanggan` (`PelangganID`, `NamaPelanggan`, `Alamat`, `NomorTelepon`) VALUES
 (1, 'nadira', 'leuwianyar', '08564589564'),
-(2, 'fani', 'cimerak', '0897374658'),
-(3, 'fitria', 'daleum', '08956456744');
+(2, 'fani', 'cileunyi', '089737465810'),
+(3, 'fitria', 'daleum', '08956456744'),
+(4, 'markonah', 'gunung cupu', '0814563249');
 
 -- --------------------------------------------------------
 
@@ -106,7 +110,9 @@ CREATE TABLE `penjualan` (
 
 INSERT INTO `penjualan` (`PenjualanID`, `DetailID`, `TanggalPenjualan`, `JamPenjualan`, `TotalHarga`) VALUES
 ('IDP001', 'DIDP001', '2024-03-21', '09:10:31', 100),
-('IDP002', 'DIDP002', '2024-03-21', '09:11:07', 10);
+('IDP002', 'DIDP002', '2024-03-21', '09:11:07', 10),
+('IDP003', 'DIDP003', '2024-04-01', '09:41:22', 20),
+('IDP004', 'DIDP004', '2024-04-02', '09:08:24', 100000);
 
 -- --------------------------------------------------------
 
@@ -126,10 +132,10 @@ CREATE TABLE `produk` (
 --
 
 INSERT INTO `produk` (`ProdukID`, `NamaProduk`, `Harga`, `Stok`) VALUES
-('501117896574', ' vision', 20, 180),
-('8990021101096', 'lem agatis', 10, 9),
-('8998685274002', 'permen nano', 10, 30),
-('8998830073061', 'pulpen everccos', 50, 20);
+('345676897156', 'cilok goreng', 10000, 20),
+('501117896574', ' vision', 20000, 180),
+('8998685274002', 'permen nano', 10000, 18),
+('8998830073061', 'pulpen everccos', 50000, 20);
 
 --
 -- Indexes for dumped tables

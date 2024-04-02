@@ -121,7 +121,7 @@
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="Tentang">
+        <Menu class="javax.swing.JMenu" name="Help">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="2" name="C:\Users\OWNER\Downloads\help.png"/>
@@ -129,13 +129,16 @@
             <Property name="text" type="java.lang.String" value="Help"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
+            <MenuItem class="javax.swing.JMenuItem" name="Tentang">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="2" name="C:\Users\OWNER\Downloads\66.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Tentang"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TentangActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>

@@ -54,7 +54,7 @@ public class FormLaporanTransaksi extends javax.swing.JFrame {
         tblLapTransaksi = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panel1.setBackground(new java.awt.Color(0, 153, 255));
 
@@ -156,11 +156,11 @@ public class FormLaporanTransaksi extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(panel1Layout.createSequentialGroup()
                         .addComponent(DariTanggal, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(SampaiTanggal, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(100, 100, 100)))
+                        .addComponent(SampaiTanggal, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(76, 76, 76)))
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnCari2, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCari1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -205,8 +205,7 @@ public class FormLaporanTransaksi extends javax.swing.JFrame {
                 .addContainerGap(230, Short.MAX_VALUE))
         );
 
-        getContentPane().add(panel1);
-        panel1.setBounds(0, 0, 740, 960);
+        getContentPane().add(panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -215,11 +214,10 @@ public class FormLaporanTransaksi extends javax.swing.JFrame {
 try {
     SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
     tanggal = format.format(SebelumTanggal.getDate());
-    tanggal2 = format.format(SampaiTanggal.getDate());
     sql = "select * from penjualan where TanggalPenjualan < '"+tanggal+"'";
     pst = konek.prepareStatement(sql);
     rst = pst.executeQuery();
-    tblDataProduk.setModel(DbUtils.resultSetToTableModel(rst));
+    tblLapTransaksi.setModel(DbUtils.resultSetToTableModel(rst));
 } catch (Exception e) {
      JOptionPane.showMessageDialog(null, "Data Tidak Tampil");
  }   // TODO add your handling code here:
@@ -228,11 +226,12 @@ try {
     private void btnCari2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCari2ActionPerformed
 try {
     SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-    tanggal = format.format(SebelumTanggal.getDate());
-    sql = "select * from penjualan where TanggalPenjualan < '"+tanggal+"'";
+    tanggal = format.format(DariTanggal.getDate());
+    tanggal2= format.format(SampaiTanggal.getDate());
+    sql = "select * from penjualan where TanggalPenjualan between '"+tanggal+"' and '"+tanggal2+"'";
     pst = konek.prepareStatement(sql);
     rst = pst.executeQuery();
-    tblDataProduk.setModel(DbUtils.resultSetToTableModel(rst));
+    tblLapTransaksi.setModel(DbUtils.resultSetToTableModel(rst));
 } catch (Exception e) {
      JOptionPane.showMessageDialog(null, "Data Tidak Tampil");
 }
@@ -242,11 +241,11 @@ try {
     private void btnCari3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCari3ActionPerformed
   try {
     SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-    tanggal = format.format(SebelumTanggal.getDate());
-    sql = "select * from penjualan where TanggalPenjualan < '"+tanggal+"'";
+    tanggal = format.format(SetelahTanggal.getDate());
+    sql = "select * from penjualan where TanggalPenjualan > '"+tanggal+"'";
     pst = konek.prepareStatement(sql);
     rst = pst.executeQuery();
-    tblDataProduk.setModel(DbUtils.resultSetToTableModel(rst));
+    tblLapTransaksi.setModel(DbUtils.resultSetToTableModel(rst));
 } catch (Exception e) {
      JOptionPane.showMessageDialog(null, "Data Tidak Tampil");
  }       // TODO add your handling code here:
